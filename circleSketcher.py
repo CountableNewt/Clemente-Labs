@@ -20,6 +20,32 @@ def main():
 
     # Stores point for center of circle
     center = win.getMouse()
-    Point(center.getX(), center.getY()).draw(win)
+    centerPoint = Point(center.getX(), center.getY()).draw(win)
+
+    # Changing message
+    message.setText("Click again to define the radius of your circle")
+
+    # Getting radius point
+    edge = win.getMouse()
+
+    # Using distance formula to find the radius
+    radius = sqrt((center.getX() - edge.getX())**2 +
+                  (center.getY() - edge.getY())**2)
+
+    # Drawing circle
+    circle1 = Circle(centerPoint, radius).draw(win)
+
+    # Changing message
+    message.setText("Click again to color the circle red")
+
+    # Setting circle color after click
+    win.getMouse()
+    circle1.setFill("red")
+
+    # Exit prompt
+    message.setText("Click again to close")
+    win.getMouse()
+    win.close()
     
 main()
+
