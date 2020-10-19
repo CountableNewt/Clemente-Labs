@@ -7,11 +7,16 @@ def main():
     print("I'm thinking of an animal")
     
     while True:
-        guess = str(input("Guess what it is or type 'quit' to give up: ")).upper()
-        if guess == animal.upper:
+        guess = str(input("Guess what it is or type a word beginning with 'q' to give up: ")).upper()
+        if guess == animal.upper():
             print("You're right!")
+            response = str(input("Do you like swans (y / n)? ")).upper()
+            if response == "Y":
+                print("Nice")
+            elif response == "N":
+                print("Wack")
             break
-        elif guess == "QUIT":
+        elif guess[0] == "Q":
             print("The answer was:", animal)
             print("Goodbye!")
             break
